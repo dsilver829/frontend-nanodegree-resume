@@ -2,11 +2,26 @@
 This is empty on purpose! Your code to build the resume will go here.
  */
 
-var work = {};
-work.position = "CEO";
-work.employer = "Candidate Metrics";
-work.years = "5";
-work.city = "San Mateo";
+var work = {
+  "jobs": [
+    {
+      "employer": "Candidate Metrics",
+      "title": "CEO",
+      "location": "San Mateo, CA, US",
+      "dates": "2011-2016",
+      "description": "We help companies hire great candidates."
+    },
+    {
+      "employer": "mSpot",
+      "title": "Product Manager",
+      "location": "Palo Alto, CA, US",
+      "dates": "2008-2010",
+      "description": "We built great mobile products."
+    }
+  ];
+};
+
+var projects = [];
 
 var education = {
   "schools": [
