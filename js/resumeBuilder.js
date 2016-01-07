@@ -21,7 +21,20 @@ var work = {
   ]
 };
 
-var projects = [];
+var projects = {
+  "list": [{
+    "title": "SumoBot",
+    "dates": "November, 2015 - present",
+    "description": "I'm building a self-driving car!",
+    "image": "https://a.pololu-files.com/picture/0J6690.300.jpg?dec2695f4789b6309865d1a9a7cda41f" 
+  },
+  {
+    "title": "InnVision Shelter Network",
+    "dates": "2012 - present",
+    "description": "I volunteer at our local homeless shelter.",
+    "image": "http://static.wixstatic.com/media/32849e_b0f5f90f54604100b066733ff7583fae.png/v1/fill/w_325,h_122,al_c,usm_0.50_1.20_0.00,lg_1/32849e_b0f5f90f54604100b066733ff7583fae.png" 
+  }],
+};
 
 var education = {
   "schools": [
@@ -120,3 +133,16 @@ function inName(name) {
   var firstName = names[0].slice(0,1).toUpperCase() + names[0].slice(1).toLowerCase();
   return firstName + " " + lastName;
 }
+
+projects.display = function() {
+  for(var i in projects.list) {
+    var project = projects.list[i];
+    $('#projects').append(HTMLprojectStart);
+    $(".project-entry:last").append(HTMLprojectTitle.replace("%data%", project.title));
+    $(".project-entry:last").append(HTMLprojectDates.replace("%data%", project.dates));
+    $(".project-entry:last").append(HTMLprojectDescription.replace("%data%", project.description));
+    $(".project-entry:last").append(HTMLprojectImage.replace("%data%", project.image));
+  }
+}
+
+projects.display();
