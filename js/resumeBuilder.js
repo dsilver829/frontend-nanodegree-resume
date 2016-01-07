@@ -55,7 +55,7 @@ var bio = {
   "name": "David Silver",
   "role": "Software Engineer",
   "contact": contact,
-  "pic": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/000/229/399/08f7864.jpg",
+  "pic": "http://1.gravatar.com/avatar/264bdf2a721efc3ae7fd6c9d35c1a695",
   "welcomeMsg": welcomeMsg,
   "skills": skills
 };
@@ -90,8 +90,7 @@ if(bio.skills.length > 0) {
   }
 }
 
-for(var i in work.jobs) {
-  var job = work.jobs[i];
+function displayWork(job) {
   $('#workExperience').append(HTMLworkStart);
   var formattedWorkEmployer    = HTMLworkEmployer.replace("%data%", job.employer);
   var formattedWorkTitle       = HTMLworkTitle.replace("%data%", job.title);
@@ -103,3 +102,12 @@ for(var i in work.jobs) {
   $('.work-entry:last').append(formattedWorkDates);
   $('.work-entry:last').append(formattedWorkDescription);
 }
+
+for(var i in work.jobs) {
+  var job = work.jobs[i];
+  displayWork(job);
+}
+
+$(document).click(function(loc) {
+  logClicks(loc.pageX, loc.pageY);
+});
