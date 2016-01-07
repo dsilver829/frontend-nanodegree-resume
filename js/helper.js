@@ -203,22 +203,33 @@ function initializeMap() {
   and fires off Google place searches for each location
   */
   function pinPoster(locations) {
-console.log(map);
+    
     // creates a Google place search service object. PlacesService does the work of
     // actually searching for location data.
     var service = new google.maps.places.PlacesService(map);
 
     // Iterates through the array of locations, creates a search object for each location
-      locations.forEach(function(place){
+      //locations.forEach(function(place){
       // the search request object
-      var request = {
-        query: place
-      };
+      //var request = {
+      //  query: place
+      //};
 
       // Actually searches the Google Maps API for location data and runs the callback
       // function with the search results after each search.
+      //service.textSearch(request, callback);
+    //});
+
+    for(var place in locations) {
+      if(!locations[place])
+        continue;
+
+      var request = {
+        query: locations[place]
+      };
+
       service.textSearch(request, callback);
-    });
+    }
   }
 
   // Sets the boundaries of the map based on pin locations
