@@ -18,7 +18,7 @@ var work = {
       "dates": "2008-2010",
       "description": "We built great mobile products."
     }
-  ];
+  ]
 };
 
 var projects = [];
@@ -72,11 +72,8 @@ var formattedBioPic     = HTMLbioPic.replace("%data%", bio.pic);
 var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg);
 var formattedSkills     = HTMLskills.replace("%data%", bio.skills);
 
-$('#header').append(work["position"]);
-$('#header').append(education.name);
-$('#header').prepend(formattedSkills);
-$('#header').prepend(formattedWelcomeMsg);
-$('#header').prepend(formattedBioPic);
+$('#header').append(formattedWelcomeMsg);
+$('#header').append(formattedBioPic);
 $('#topContacts').prepend(formattedLocation);
 $('#topContacts').prepend(formattedBlog);
 $('#topContacts').prepend(formattedGithub);
@@ -85,3 +82,8 @@ $('#topContacts').prepend(formattedEmail);
 $('#topContacts').prepend(formattedMobile);
 $('#header').prepend(formattedRole);
 $('#header').prepend(formattedName);
+
+if(bio.skills.length > 0) {
+  $('#header').append(HTMLskillsStart);
+  $('#skills').append(formattedSkills);
+}
