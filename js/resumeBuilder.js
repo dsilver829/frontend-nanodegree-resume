@@ -55,7 +55,7 @@ var skills = ["Ruby on Rails", "JavaScript"];
 
 var welcomeMsg = "Hello and welcome to my résumé!";
 
-var contact = {
+var contacts = {
   "mobile":   "703-539-2331",
   "email":    "dsilver@candidatemetrics.com",
   "twitter":  "@dsilver829",
@@ -67,7 +67,7 @@ var contact = {
 var bio = {
   "name": "David Silver",
   "role": "Software Engineer",
-  "contact": contact,
+  "contacts": contacts,
   "pic": "http://1.gravatar.com/avatar/264bdf2a721efc3ae7fd6c9d35c1a695",
   "welcomeMsg": welcomeMsg,
   "skills": skills
@@ -75,12 +75,12 @@ var bio = {
 
 var formattedName       = HTMLheaderName.replace("%data%", bio.name)
 var formattedRole       = HTMLheaderRole.replace("%data%", bio.role);
-var formattedMobile     = HTMLmobile.replace("%data%", contact.mobile);
-var formattedEmail      = HTMLemail.replace("%data%", contact.email);
-var formattedTwitter    = HTMLtwitter.replace("%data%", contact.twitter);
-var formattedGithub     = HTMLgithub.replace("%data%", contact.github);
-var formattedBlog       = HTMLblog.replace("%data%", contact.blog);
-var formattedLocation   = HTMLlocation.replace("%data%", contact.location);
+var formattedMobile     = HTMLmobile.replace("%data%", contacts.mobile);
+var formattedEmail      = HTMLemail.replace("%data%", contacts.email);
+var formattedTwitter    = HTMLtwitter.replace("%data%", contacts.twitter);
+var formattedGithub     = HTMLgithub.replace("%data%", contacts.github);
+var formattedBlog       = HTMLblog.replace("%data%", contacts.blog);
+var formattedLocation   = HTMLlocation.replace("%data%", contacts.location);
 var formattedBioPic     = HTMLbioPic.replace("%data%", bio.pic);
 var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg);
 
@@ -146,3 +146,5 @@ projects.display = function() {
 }
 
 projects.display();
+
+$('#mapDiv').append(googleMap);
