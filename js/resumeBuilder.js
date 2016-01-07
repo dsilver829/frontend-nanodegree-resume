@@ -70,7 +70,6 @@ var formattedBlog       = HTMLblog.replace("%data%", contact.blog);
 var formattedLocation   = HTMLlocation.replace("%data%", contact.location);
 var formattedBioPic     = HTMLbioPic.replace("%data%", bio.pic);
 var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg);
-var formattedSkills     = HTMLskills.replace("%data%", bio.skills);
 
 $('#header').append(formattedWelcomeMsg);
 $('#header').append(formattedBioPic);
@@ -85,5 +84,8 @@ $('#header').prepend(formattedName);
 
 if(bio.skills.length > 0) {
   $('#header').append(HTMLskillsStart);
-  $('#skills').append(formattedSkills);
+  for(var i in bio.skills) {
+    var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
+    $('#skills').append(formattedSkill);
+  }
 }
