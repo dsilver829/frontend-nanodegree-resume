@@ -40,13 +40,17 @@ var education = {
   "schools": [
     {
       "name": "Stanford University",
-      "city": "Stanford, CA, US",
-      "degree": "MBA"
+      "location": "Stanford, CA, US",
+      "dates": "2006-2008",
+      "degree": "MBA",
+      "major": "N/A"
     },
     {
       "name": "Princeton University",
-      "city": "Princeton, NJ, US",
-      "degree": "BSE"
+      "location": "Princeton, NJ, US",
+      "dates": "2000-2004",
+      "degree": "BSE",
+      "major": "computer science"
     }
   ]
 };
@@ -95,6 +99,7 @@ $('#topContacts').prepend(formattedMobile);
 $('#header').prepend(formattedRole);
 $('#header').prepend(formattedName);
 
+bio.display = function() {
 if(bio.skills.length > 0) {
   $('#header').append(HTMLskillsStart);
   for(var i in bio.skills) {
@@ -102,6 +107,9 @@ if(bio.skills.length > 0) {
     $('#skills').append(formattedSkill);
   }
 }
+}
+
+bio.display();
 
 function displayWork(job) {
   $('#workExperience').append(HTMLworkStart);
@@ -116,16 +124,20 @@ function displayWork(job) {
   $('.work-entry:last').append(formattedWorkDescription);
 }
 
+work.display = function() {
 for(var i in work.jobs) {
   var job = work.jobs[i];
   displayWork(job);
 }
+}
+
+work.display();
 
 $(document).click(function(loc) {
   logClicks(loc.pageX, loc.pageY);
 });
 
-$('#main').append(internationalizeButton);
+//$('#main').append(internationalizeButton);
 
 function inName(name) {
   var names = name.trim().split(" ");
@@ -133,6 +145,21 @@ function inName(name) {
   var firstName = names[0].slice(0,1).toUpperCase() + names[0].slice(1).toLowerCase();
   return firstName + " " + lastName;
 }
+
+education.display = function() {
+  for(var i in education.schools) {
+    var school = education.schools[i];
+    $('#education').append(HTMLschoolStart);
+    $(".education-entry:last").append(HTMLschoolName.replace("%data%", school.name).concat(HTMLschoolDegree.replace("%data%", school.degree)));
+    $(".education-entry:last").append(HTMLschoolDates.replace("%data%", school.dates));
+    $(".education-entry:last").append(HTMLschoolLocation.replace("%data%", school.location));
+    if(school.major) {
+      $(".education-entry:last").append(HTMLschoolMajor.replace("%data%", school.major));
+    }
+  }
+}
+
+education.display();
 
 projects.display = function() {
   for(var i in projects.list) {
