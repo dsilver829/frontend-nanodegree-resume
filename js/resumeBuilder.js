@@ -2,6 +2,27 @@
 This is empty on purpose! Your code to build the resume will go here.
  */
 
+var work = {};
+work.position = "CEO";
+work.employer = "Candidate Metrics";
+work.years = "5";
+work.city = "San Mateo";
+
+var education = {
+  "schools": [
+    {
+      "name": "Stanford University",
+      "city": "Stanford, CA, US",
+      "degree": "MBA"
+    },
+    {
+      "name": "Princeton University",
+      "city": "Princeton, NJ, US",
+      "degree": "BSE"
+    }
+  ]
+};
+
 var skills = ["Ruby on Rails", "JavaScript"];
 
 var welcomeMsg = "Hello and welcome to my résumé!";
@@ -36,6 +57,8 @@ var formattedBioPic     = HTMLbioPic.replace("%data%", bio.pic);
 var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg);
 var formattedSkills     = HTMLskills.replace("%data%", bio.skills);
 
+$('#header').append(work["position"]);
+$('#header').append(education.name);
 $('#header').prepend(formattedSkills);
 $('#header').prepend(formattedWelcomeMsg);
 $('#header').prepend(formattedBioPic);
