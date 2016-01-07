@@ -111,3 +111,12 @@ for(var i in work.jobs) {
 $(document).click(function(loc) {
   logClicks(loc.pageX, loc.pageY);
 });
+
+$('#main').append(internationalizeButton);
+
+function inName(name) {
+  var names = name.trim().split(" ");
+  var lastName = names[1].toUpperCase();
+  var firstName = names[0].slice(0,1).toUpperCase() + names[0].slice(1).toLowerCase();
+  return firstName + " " + lastName;
+}
